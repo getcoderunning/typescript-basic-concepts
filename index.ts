@@ -136,12 +136,55 @@
     // import {Bear, Man, Pig} from './interfaces/index';
 
 //ANCHOR TypeScript Models
-import {Person} from './person.model';
+    // import {Person} from './person.model';
 
-const example1: Person = new Person(
-    {firstName: 'Ace', middleName: 'Pangit', lastName: 'Bailon'}
-);
+    // const example1: Person = new Person(
+    //     {firstName: 'Ace', middleName: 'Pangit', lastName: 'Bailon'}
+    // );
 
-example1.firstName = 'Christian';
-example1.middleName = 'Coding God';
-example1.lastName = 'Bailon';
+    // example1.firstName = 'Christian';
+    // example1.middleName = 'Coding God';
+    // example1.lastName = 'Bailon';
+
+//ANCHOR TypeScript Intersection Types
+    // import {Bear, Man, Pig} from './interfaces/index';
+
+    // let man: Man | Pig;
+    // let bear: Bear;
+    // let pig: Pig;
+
+    //another approach of assigning types
+    //type ManBearPig = Bear & Man & Pig;
+    //let manBearPig: ManBearPig;
+
+    // let manBearPig: Bear & Man & Pig;
+    // manBearPig.firstName = "Christian";
+    // manBearPig.claws = 3;
+    // manBearPig.bacon = false;
+
+//ANCHOR TypeScript Generics
+// function example<T>(arg:T): T {
+//     return arg;
+// }
+
+// example(5);
+
+//returning T as array
+// function example<T>(arg:T[]): T[] {
+//     return arg;
+// }
+
+// example([4]);
+
+//ANCHOR TypeScript Access Modifiers
+import {Bear} from './bear.model';
+import { Animal } from './animal.model';
+//by default types are public
+//add protected to animal model types and constructor
+
+//const bear = new Bear();
+//const animal = new Animal({type: bear});
+
+const bear = new Bear({name: "Omega", tail: true});
+bear.claws = 3;
+bear.add(2,3);
